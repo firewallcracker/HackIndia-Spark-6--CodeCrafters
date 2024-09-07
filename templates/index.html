@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Network Security Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Blockchain Network Security Scanner</h1>
+
+    <section>
+        <h2>1. Blockchain Traffic Monitor</h2>
+        <button onclick="monitorTraffic()">Monitor Traffic</button>
+        <pre id="traffic-results"><script>function monitorTraffic() {
+            fetch('/traffic')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('traffic-results').textContent = JSON.stringify(data, null, 2);
+                });
+        }</script></pre>
+    </section>
+
+    <section>
+        <h2>2. Node Security Checker</h2>
+        <form id="node-form">
+            <input type="text" name="node_url" placeholder="Node URL" required>
+            <button type="submit">Check Security</button>
+        </form>
+        <pre id="node-results"></pre>
+    </section>
+
+    <section>
+        <h2>3. Smart Contract Auditor</h2>
+        <form id="contract-form">
+            <input type="text" name="contract_path" placeholder="Smart Contract Path" required>
+            <button type="submit">Audit Contract</button>
+        </form>
+        <pre id="contract-results"></pre>
+    </section>
+
+    <section>
+        <h2>4. Blockchain Vulnerability Scanner</h2>
+        <form id="vulnerability-form">
+            <input type="text" name="endpoint" placeholder="Blockchain Endpoint" required>
+            <button type="submit">Scan Vulnerabilities</button>
+        </form>
+        <pre id="vulnerability-results"></pre>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
